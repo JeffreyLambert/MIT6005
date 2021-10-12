@@ -1,5 +1,9 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Hailstone {
     Integer n;
+    final List<Integer> sequence = new ArrayList<Integer>();
 
     // Initialize Class
     public Hailstone(Integer n) {
@@ -7,7 +11,7 @@ public class Hailstone {
     }
 
     // Setter method for attribute n
-    public void setN(Integer value) {
+    public void setN(final Integer value) {
         this.n = value;
     }
 
@@ -26,9 +30,11 @@ public class Hailstone {
 
     // Create method for looping through sequence
     public void resolveSequence() {
+       // this.sequence.add(this.n);
         while (this.n != 1) {
             this.nextElement();
-            System.out.println(this.n);
+            //System.out.println(this.n);
+            this.sequence.add(this.n);
         }
 
         System.out.println("Sequence resolved!");
@@ -39,7 +45,8 @@ public class Hailstone {
 
         // Initialize Hailstone object
         Hailstone hs = new Hailstone(7);
-        System.out.println(hs.getN());
+        System.out.println("Initial value: " + hs.getN());
         hs.resolveSequence();
+        System.out.println("Final sequence: " + hs.sequence.toString());
     }
 }
